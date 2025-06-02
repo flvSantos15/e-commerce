@@ -1,5 +1,5 @@
 <nav class="nav">
-  <h1 routerLink="/" style="cursor: pointer">Angular - E-commerce</h1>
+  <h1 routerLink="/" style="cursor: pointer">E-commerce</h1>
 
   <div class="nav-search">
     <input type="text" placeholder="Search Products" />
@@ -7,11 +7,13 @@
   </div>
 
   <ul>
-    <li><a routerLink="/" routerLinkActive="active">Seller</a></li>
-    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/" routerLinkActive="active">Login</a></li>
+    <li><a routerLink="seller" routerLinkActive="active">Seller</a></li>
+    <li><a routerLink="" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="login" routerLinkActive="active">Login</a></li>
     <li>
-      <a routerLink="/cart" routerLinkActive="active">Cart (0)</a>
+      <a routerLink="cart" routerLinkActive="active"
+        >Cart ({{ cartItemCount }})</a
+      >
     </li>
   </ul>
 </nav>

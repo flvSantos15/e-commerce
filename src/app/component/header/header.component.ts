@@ -9,6 +9,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  // You can add cart item count logic here later
-  public cartItemCount = 0;
+  public cartItemCount: number = 0;
+
+  constructor() {
+    this.cartItemCount = 0;
+  }
 }
