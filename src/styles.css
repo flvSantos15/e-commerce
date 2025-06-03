@@ -29,4 +29,9 @@ body {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  border: none;
+}
+
+.form-error {
+  color: red;
 }
