@@ -1,0 +1,34 @@
+{
+  "seller": [
+    {
+      "id": "3e1d",
+      "name": "Flavio",
+      "email": "flavio@email.com",
+      "password": "123456"
+    },
+    {
+      "id": "bbd4",
+      "name": "Jonh",
+      "email": "john@email",
+      "password": "123456"
+    },
+    {
+      "id": "f7b5",
+      "name": "ragnarak",
+      "email": "ragnarak@email",
+      "password": "123456"
+    },
+    {
+      "id": "8f35",
+      "name": "pedro",
+      "email": "oedro@email",
+      "password": "123456"
+    },
+    {
+      "id": "d9bf",
+      "name": "flavio",
+      "email": "flavio@email",
+      "password": "123456"
+    }
+  ]
+}

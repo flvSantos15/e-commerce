@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { SellerService } from '../../services/seller.service';
 
 @Component({
   selector: 'app-seller',
@@ -17,7 +18,7 @@ export class SellerComponent implements OnInit {
   public loading: boolean = false;
   public sellerSignUpForm: FormGroup;
 
-  constructor() {
+  constructor(private sellerService: SellerService) {
     this.sellerSignUpForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
@@ -25,12 +26,12 @@ export class SellerComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sellerService.reloadSeller();
+  }
 
   onSignUp(): void {
-    console.log(this.sellerSignUpForm.value);
-
-    this.loading = true;
+    this.sellerService.signUp(this.sellerSignUpForm.value);
 
     setTimeout(() => {
       this.loading = false;
