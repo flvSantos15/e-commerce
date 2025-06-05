@@ -5,8 +5,8 @@
     <!-- #sellerSignUpForm="" -->
     <form
       class="common-form"
-      [formGroup]="sellerSignUpForm"
-      name="sellerSignUpForm"
+      [formGroup]="signUpForm"
+      name="signUpForm"
       (ngSubmit)="onSignUp()"
     >
       <input
@@ -38,12 +38,12 @@
   <div *ngIf="showLogin" class="sign-up">
     <h1>Seller Login</h1>
 
-    <p *ngIf="authError" class="form-error">{{ authError }}</p>
+    <p *ngIf="authError" class="form-error-message">{{ authError }}</p>
 
     <form
       class="common-form"
-      [formGroup]="sellerLoginForm"
-      name="sellerLoginForm"
+      [formGroup]="signInForm"
+      name="signInForm"
       (ngSubmit)="onLogin()"
     >
       <input

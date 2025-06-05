@@ -32,6 +32,12 @@ body {
   border: none;
 }
 
-.form-error {
+.form-error-message {
   color: red;
+  text-align: center;
+}
+
+.form-success-message {
+  text-align: center;
+  color: green;
 }

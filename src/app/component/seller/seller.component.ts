@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { SellerService } from '../../services/seller.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-seller',
@@ -19,39 +19,39 @@ export class SellerComponent implements OnInit {
   public loading: boolean = false;
   public showLogin: boolean = false;
   public authError: string = '';
-  public sellerSignUpForm: FormGroup;
-  public sellerLoginForm: FormGroup;
+  public signUpForm: FormGroup;
+  public signInForm: FormGroup;
 
-  constructor(private sellerService: SellerService) {
-    this.sellerSignUpForm = new FormGroup({
+  constructor(private authService: AuthService) {
+    this.signUpForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
 
-    this.sellerLoginForm = new FormGroup({
+    this.signInForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
   }
 
   ngOnInit() {
-    this.sellerService.reloadSeller();
+    this.authService.reloadSeller();
   }
 
   onSignUp(): void {
-    this.sellerService.signUp(this.sellerSignUpForm.value);
+    this.authService.signUp(this.signUpForm.value);
 
     setTimeout(() => {
       this.loading = false;
     }, 2000);
 
-    this.sellerSignUpForm.reset();
+    this.signUpForm.reset();
   }
 
   onLogin(): void {
-    this.sellerService.login(this.sellerLoginForm.value);
-    this.sellerService.isLoginError.subscribe((error) => {
+    this.authService.login(this.signInForm.value);
+    this.authService.isLoginError.subscribe((error) => {
       if (error) {
         this.authError = 'Invalid email or password';
       }
@@ -61,7 +61,7 @@ export class SellerComponent implements OnInit {
       this.loading = false;
     }, 2000);
 
-    this.sellerLoginForm.reset();
+    this.signInForm.reset();
   }
 
   openLogin(): void {

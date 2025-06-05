@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { SellerService } from '../../services/seller.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -15,12 +15,11 @@ export class HeaderComponent {
   public cartItemCount: number = 0;
   public sellerName: string = '';
 
-  constructor(private router: Router, private sellerService: SellerService) {
+  constructor(private router: Router, private authService: AuthService) {
     this.cartItemCount = 0;
   }
 
   ngOnInit(): void {
-    this.sellerService.reloadSeller();
     this.router.events.subscribe((event: any) => {
       if (event.url) {
         const seller = localStorage.getItem('seller');
@@ -37,6 +36,6 @@ export class HeaderComponent {
   }
 
   onLogout(): void {
-    this.sellerService.logout();
+    this.authService.logout();
   }
 }

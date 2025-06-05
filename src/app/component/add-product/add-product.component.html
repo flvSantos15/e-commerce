@@ -1,1 +1,44 @@
-<p>add-product works!</p>
+<div class="add-product">
+  <h1>Add Product</h1>
+
+  <p *ngIf="message" class="form-success-message">{{ message }}</p>
+
+  <form
+    class="common-form"
+    [formGroup]="productForm"
+    name="productForm"
+    (ngSubmit)="handleCreateProduct()"
+  >
+    <input
+      type="text"
+      class="form-input"
+      formControlName="name"
+      placeholder="Product Name"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="price"
+      placeholder="Product Price"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="description"
+      placeholder="Product Description"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="image"
+      placeholder="Product Image"
+    />
+    <select class="form-input" name="category" id="" formControlName="category">
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </option>
+    </select>
+
+    <button type="submit" class="form-button">Add Product</button>
+  </form>
+</div>
