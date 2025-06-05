@@ -4,7 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProductCategoriesService {
-  public categories: string[] = ['keyboard', 'mouse', 'monitor'];
+  public categories: string[] = [
+    'keyboard',
+    'mouse',
+    'monitor',
+    'headphone',
+    'notebook',
+    'smartphone',
+    'tablet',
+    'printer',
+  ];
 
   constructor() {}
 

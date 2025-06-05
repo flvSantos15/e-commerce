@@ -12,7 +12,7 @@
     <ul *ngSwitchCase="'default'">
       <li><a routerLink="seller" routerLinkActive="active">Seller</a></li>
       <li><a routerLink="" routerLinkActive="active">Home</a></li>
-      <li><a routerLink="login" routerLinkActive="active">Login</a></li>
+      <li (click)="redirectToLogin()" routerLinkActive="active">Login</li>
       <li>
         <a routerLink="cart" routerLinkActive="active">
           Cart ({{ cartItemCount }})
@@ -24,7 +24,7 @@
       <li>
         <a routerLink="add-product" routerLinkActive="active">Add Product</a>
       </li>
-      <li><a routerLink="seller-home" routerLinkActive="active">List</a></li>
+      <li><a routerLink="home" routerLinkActive="active">List</a></li>
       <li (click)="onLogout()" routerLinkActive="active">Logout</li>
       <li>
         <a routerLink="cart" routerLinkActive="active">{{

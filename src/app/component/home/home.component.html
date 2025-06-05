@@ -1,1 +1,30 @@
-<p>home works!</p>
+<div class="products">
+  <h1>Products</h1>
+
+  <p *ngIf="message" class="form-success-message">{{ message }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td><img [src]="product.image" alt="" /></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.description }}</td>
+        <td>
+          <button (click)="handleDeleteProduct(product.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

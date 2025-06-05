@@ -35,6 +35,10 @@ export class HeaderComponent {
     });
   }
 
+  redirectToLogin(): void {
+    this.router.navigate(['seller'], { queryParams: { showLogin: true } });
+  }
+
   onLogout(): void {
     this.authService.logout();
   }

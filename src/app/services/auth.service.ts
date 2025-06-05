@@ -31,7 +31,7 @@ export class AuthService {
         if (result) {
           this.isSellerLoggedIn.next(true);
           localStorage.setItem('seller', JSON.stringify(result));
-          this.router.navigate(['/seller-home']);
+          this.router.navigate(['']);
         }
       });
   }
@@ -55,7 +55,7 @@ export class AuthService {
           this.isLoginError.emit(false);
           this.isSellerLoggedIn.next(true);
           localStorage.setItem('seller', JSON.stringify(result.body[0]));
-          this.router.navigate(['/seller-home']);
+          this.router.navigate(['']);
         } else {
           this.isLoginError.emit(true);
         }

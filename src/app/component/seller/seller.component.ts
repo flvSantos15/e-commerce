@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -22,7 +23,11 @@ export class SellerComponent implements OnInit {
   public signUpForm: FormGroup;
   public signInForm: FormGroup;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
+  ) {
     this.signUpForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
@@ -37,6 +42,13 @@ export class SellerComponent implements OnInit {
 
   ngOnInit() {
     this.authService.reloadSeller();
+    this.activeRoute.queryParams.subscribe((params) => {
+      if (params['showLogin']) {
+        this.showLogin = true;
+      } else {
+        this.showLogin = false;
+      }
+    });
   }
 
   onSignUp(): void {
@@ -66,9 +78,11 @@ export class SellerComponent implements OnInit {
 
   openLogin(): void {
     this.showLogin = true;
+    this.router.navigate(['seller'], { queryParams: { showLogin: true } });
   }
 
   closeLogin(): void {
     this.showLogin = false;
+    this.router.navigate(['seller']);
   }
 }
