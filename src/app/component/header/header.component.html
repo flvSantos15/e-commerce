@@ -21,11 +21,15 @@
     </ul>
 
     <ul *ngSwitchCase="'seller'">
-      <li><a routerLink="seller" routerLinkActive="active">Add Product</a></li>
-      <li><a routerLink="" routerLinkActive="active">List</a></li>
-      <li><a routerLink="login" routerLinkActive="active">Logout</a></li>
       <li>
-        <a routerLink="cart" routerLinkActive="active"> Seller Name </a>
+        <a routerLink="add-product" routerLinkActive="active">Add Product</a>
+      </li>
+      <li><a routerLink="seller-home" routerLinkActive="active">List</a></li>
+      <li (click)="onLogout()" routerLinkActive="active">Logout</li>
+      <li>
+        <a routerLink="cart" routerLinkActive="active">{{
+          sellerName | titlecase
+        }}</a>
       </li>
     </ul>
   </div>

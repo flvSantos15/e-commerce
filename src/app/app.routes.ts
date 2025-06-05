@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AddProductComponent } from './component/add-product/add-product.component';
 import { CartComponent } from './component/cart/cart.component';
 import { HomeComponent } from './component/home/home.component';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
@@ -12,6 +13,11 @@ export const routes: Routes = [
   {
     path: 'seller-home',
     component: SellerHomeComponent,
+    canActivate: [authenticatedGuard],
+  },
+  {
+    path: 'add-product',
+    component: AddProductComponent,
     canActivate: [authenticatedGuard],
   },
   { path: '**', redirectTo: '' }, // Redirect to home for any unknown routes

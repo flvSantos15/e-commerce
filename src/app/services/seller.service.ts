@@ -61,4 +61,10 @@ export class SellerService {
         }
       });
   }
+
+  logout(): void {
+    localStorage.removeItem('seller');
+    this.isSellerLoggedIn.next(false);
+    this.router.navigate(['/']);
+  }
 }
