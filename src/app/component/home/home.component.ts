@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { IProduct } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -14,6 +16,7 @@ export class HomeComponent {
   products: IProduct[] | [] = [];
   isLoading: boolean = false;
   message: string = '';
+  faTrash = faTrash;
 
   constructor(private productService: ProductService) {}
 

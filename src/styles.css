@@ -41,3 +41,7 @@ body {
   text-align: center;
   color: green;
 }
+
+.icon-button {
+  cursor: pointer;
+}

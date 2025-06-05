@@ -22,7 +22,11 @@
         <td>{{ product.category }}</td>
         <td>{{ product.description }}</td>
         <td>
-          <button (click)="handleDeleteProduct(product.id!)">Delete</button>
+          <fa-icon
+            class="icon-button"
+            [icon]="faTrash"
+            (click)="handleDeleteProduct(product.id!)"
+          ></fa-icon>
         </td>
       </tr>
     </tbody>
