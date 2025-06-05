@@ -27,6 +27,12 @@
             [icon]="faTrash"
             (click)="handleDeleteProduct(product.id!)"
           ></fa-icon>
+
+          <fa-icon
+            class="icon-button"
+            [icon]="faEdit"
+            (click)="handleRedirectToUpdateProduct(product.id!)"
+          ></fa-icon>
         </td>
       </tr>
     </tbody>

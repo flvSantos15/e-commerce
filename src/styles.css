@@ -44,4 +44,6 @@ body {
 
 .icon-button {
   cursor: pointer;
+  margin: 0px 6px;
+  font-size: 20px;
 }

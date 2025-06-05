@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { IProduct } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 
@@ -17,8 +18,9 @@ export class HomeComponent {
   isLoading: boolean = false;
   message: string = '';
   faTrash = faTrash;
+  faEdit = faEdit;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -38,5 +40,9 @@ export class HomeComponent {
       this.message = 'Product deleted successfully';
       this.getProducts();
     });
+  }
+
+  handleRedirectToUpdateProduct(id: string): void {
+    this.router.navigate(['/update-product', id]);
   }
 }
