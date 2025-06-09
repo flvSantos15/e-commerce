@@ -1,22 +1,3 @@
-/* Estilos da tabela */
-table {
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table td,
-table th {
-  border: 1px solid #ccc;
-  padding: 8px;
-  min-width: 120px;
-}
-
-table td img {
-  width: 100px;
-}
-
 /* Estilos do carrossel personalizado */
 .carousel-container {
   width: 100%;
@@ -146,3 +127,47 @@ table td img {
     font-size: 0.9rem;
   }
 } */
+
+.product-list-wrapper .row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.col-sm-3 {
+  width: 300px;
+}
+
+.product-item {
+  margin-bottom: 40px;
+  border: 1px solid #ccc;
+}
+
+.product-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.product-item .product-details {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+}
+
+.product-item .name-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.product-item h6 {
+  text-align: center;
+}
+
+.product-item .product-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}

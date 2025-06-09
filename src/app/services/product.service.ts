@@ -34,4 +34,10 @@ export class ProductService {
       'http://localhost:3000/products?_limit=3&_sort=views&_order=desc'
     );
   }
+
+  getTrendyProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(
+      'http://localhost:3000/products?_limit=8&_sort=views&_order=desc'
+    );
+  }
 }

@@ -14,6 +14,7 @@ export class HeaderComponent {
   public menuType: string = 'default';
   public cartItemCount: number = 0;
   public sellerName: string = '';
+  sellerRoutes: string[] = ['/seller', '/seller-home', '/add-product'];
 
   constructor(private router: Router, private authService: AuthService) {
     this.cartItemCount = 0;
@@ -22,9 +23,9 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.router.events.subscribe((event: any) => {
       if (event.url) {
-        const seller = localStorage.getItem('seller');
-        if (seller && event.url.includes('/seller')) {
-          let sellerData = JSON.parse(seller);
+        const sellerStorage = localStorage.getItem('seller');
+        if (sellerStorage && this.sellerRoutes.includes(event.url)) {
+          let sellerData = JSON.parse(sellerStorage);
           this.sellerName = sellerData.name;
 
           this.menuType = 'seller';

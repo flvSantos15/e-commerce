@@ -24,12 +24,10 @@
       <li>
         <a routerLink="add-product" routerLinkActive="active">Add Product</a>
       </li>
-      <li><a routerLink="home" routerLinkActive="active">List</a></li>
+      <li><a routerLink="seller-home" routerLinkActive="active">List</a></li>
       <li (click)="onLogout()" routerLinkActive="active">Logout</li>
       <li>
-        <a routerLink="cart" routerLinkActive="active">{{
-          sellerName | titlecase
-        }}</a>
+        <a routerLinkActive="active">{{ sellerName | titlecase }}</a>
       </li>
     </ul>
   </div>

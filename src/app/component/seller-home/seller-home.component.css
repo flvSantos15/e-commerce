@@ -1,0 +1,18 @@
+/* Estilos da tabela */
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table td,
+table th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  min-width: 120px;
+}
+
+table td img {
+  width: 100px;
+}

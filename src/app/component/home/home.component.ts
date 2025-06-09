@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Subscription, interval } from 'rxjs';
 import { IProduct } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
@@ -15,20 +13,17 @@ import { ProductService } from '../../services/product.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  products: IProduct[] = [];
   popularProducts: IProduct[] = [];
+  trendyProducts: IProduct[] = [];
   currentSlide = 0;
   isLoading = false;
-  message = '';
-  faTrash = faTrash;
-  faEdit = faEdit;
   private carouselInterval: Subscription | undefined;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.getProducts();
     this.loadPopularProducts();
+    this.loadTrendyProducts();
   }
 
   ngOnDestroy(): void {
@@ -38,15 +33,32 @@ export class HomeComponent {
   }
 
   private loadPopularProducts(): void {
+    this.isLoading = true;
     this.productService.getPopularProducts().subscribe({
       next: (products) => {
         this.popularProducts = products;
+        this.isLoading = false;
         if (products.length > 0) {
           this.startCarousel();
         }
       },
       error: (error) => {
         console.error('Error loading popular products:', error);
+        this.isLoading = false;
+      },
+    });
+  }
+
+  private loadTrendyProducts(): void {
+    this.isLoading = true;
+    this.productService.getTrendyProducts().subscribe({
+      next: (products) => {
+        this.trendyProducts = products;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error('Error loading trendy products:', error);
+        this.isLoading = false;
       },
     });
   }
@@ -71,25 +83,5 @@ export class HomeComponent {
 
   selectSlide(index: number): void {
     this.currentSlide = index;
-  }
-
-  getProducts(): void {
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
-  }
-
-  handleDeleteProduct(id: string): void {
-    this.isLoading = true;
-    this.productService.deleteProduct(id).subscribe(() => {
-      this.products = this.products.filter((product) => product.id !== id);
-      this.isLoading = false;
-      this.message = 'Product deleted successfully';
-      this.getProducts();
-    });
-  }
-
-  handleRedirectToUpdateProduct(id: string): void {
-    this.router.navigate(['/update-product', id]);
   }
 }

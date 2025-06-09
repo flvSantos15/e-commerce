@@ -1,78 +1,66 @@
-<div class="products">
-  <div class="carousel-container">
-    <!-- Debug Info -->
-    <div *ngIf="!popularProducts.length" class="debug-info">
-      Loading popular products...
-    </div>
+<div class="carousel-container">
+  <!-- Debug Info -->
+  <div *ngIf="!popularProducts.length" class="debug-info">
+    Loading popular products...
+  </div>
 
-    <!-- Carrossel Personalizado -->
-    <div *ngIf="popularProducts.length > 0" class="custom-carousel">
-      <div class="carousel-inner">
-        <div 
-          *ngFor="let product of popularProducts; let i = index"
-          class="carousel-item"
-          [class.active]="i === currentSlide"
-        >
-          <img
-            [src]="product.image"
-            [alt]="product.name"
-            class="carousel-image"
-            onerror="this.src='https://via.placeholder.com/1200x400?text=Image+Not+Found'"
-          />
-          <div class="carousel-caption">
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.description || 'No description available' }}</p>
-          </div>
+  <!-- Carrossel Personalizado -->
+  <div *ngIf="popularProducts.length > 0" class="custom-carousel">
+    <div class="carousel-inner">
+      <div
+        *ngFor="let product of popularProducts; let i = index"
+        class="carousel-item"
+        [class.active]="i === currentSlide"
+      >
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          class="carousel-image"
+          onerror="this.src='https://via.placeholder.com/1200x400?text=Image+Not+Found'"
+        />
+        <div class="carousel-caption">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description || "No description available" }}</p>
         </div>
       </div>
-      
-      <!-- Indicadores -->
-      <div class="carousel-indicators" *ngIf="popularProducts.length > 1">
-        <button
-          *ngFor="let _ of popularProducts; let i = index"
-          [class.active]="i === currentSlide"
-          (click)="selectSlide(i)"
-        ></button>
+    </div>
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators" *ngIf="popularProducts.length > 1">
+      <button
+        *ngFor="let _ of popularProducts; let i = index"
+        [class.active]="i === currentSlide"
+        (click)="selectSlide(i)"
+      ></button>
+    </div>
+  </div>
+</div>
+
+<div class="product-list-wrapper">
+  <h1>Trendy Products</h1>
+
+  <div class="row">
+    <div *ngFor="let product of trendyProducts" class="col-sm-3">
+      <div class="product-item">
+        <img src="{{ product.image }}" alt="" />
+
+        <div class="product-details">
+          <h6 class="name-head">{{ product.name }}</h6>
+
+          <div class="product-price">
+            <h6>Price: {{ product.price }}</h6>
+          </div>
+
+          <!-- <div class="product-color">
+            <h6>Price: 10000</h6>
+          </div> -->
+        </div>
+
+        <div class="product-footer">
+          <a href="">View Details</a>
+          <a href="">Add To Cart</a>
+        </div>
       </div>
     </div>
   </div>
-
-  <h1>Products</h1>
-
-  <p *ngIf="message" class="form-success-message">{{ message }}</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td><img [src]="product.image" alt="" /></td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.category }}</td>
-        <td>{{ product.description }}</td>
-        <td>
-          <fa-icon
-            class="icon-button"
-            [icon]="faTrash"
-            (click)="handleDeleteProduct(product.id!)"
-          ></fa-icon>
-
-          <fa-icon
-            class="icon-button"
-            [icon]="faEdit"
-            (click)="handleRedirectToUpdateProduct(product.id!)"
-          ></fa-icon>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>

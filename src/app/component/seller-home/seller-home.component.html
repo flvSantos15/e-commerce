@@ -1,0 +1,40 @@
+<div class="products">
+  <h1>Products</h1>
+
+  <p *ngIf="message" class="form-success-message">{{ message }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td><img [src]="product.image" alt="" /></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.description }}</td>
+        <td>
+          <fa-icon
+            class="icon-button"
+            [icon]="faTrash"
+            (click)="handleDeleteProduct(product.id!)"
+          ></fa-icon>
+
+          <fa-icon
+            class="icon-button"
+            [icon]="faEdit"
+            (click)="handleRedirectToUpdateProduct(product.id!)"
+          ></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
