@@ -28,4 +28,10 @@ export class ProductService {
   deleteProduct(id: string): Observable<void> {
     return this.http.delete<void>(`http://localhost:3000/products/${id}`);
   }
+
+  getPopularProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(
+      'http://localhost:3000/products?_limit=3&_sort=views&_order=desc'
+    );
+  }
 }

@@ -55,6 +55,14 @@
       "description": "MacBook Air 15\" Apple M4 (16GB RAM 512GB SSD) - Azul-céu",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwMCLRmQFMr3-FFiLnSbGPtqpUZbv5QeZVSg&s",
       "category": "notebook"
+    },
+    {
+      "id": "3d21",
+      "name": "Samsung Galaxy S24 Galaxy Ai",
+      "price": "1200",
+      "description": "Samsung Galaxy S24 Galaxy Ai 256GB Preto 8GB RAM",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_715415-MLA83864720212_042025-O.webp",
+      "category": "smartphone"
     }
   ]
 }

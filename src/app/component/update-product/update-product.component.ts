@@ -59,11 +59,15 @@ export class UpdateProductComponent {
 
     this.productService
       .updateProduct(productId, this.productForm.value)
-      .subscribe(() => {
+      .subscribe((result) => {
         this.isLoading = false;
         this.message = 'Product updated successfully';
         this.productForm.reset();
         this.getProduct();
+
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 3000);
       });
   }
 }

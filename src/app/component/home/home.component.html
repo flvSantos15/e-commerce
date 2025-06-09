@@ -1,4 +1,42 @@
 <div class="products">
+  <div class="carousel-container">
+    <!-- Debug Info -->
+    <div *ngIf="!popularProducts.length" class="debug-info">
+      Loading popular products...
+    </div>
+
+    <!-- Carrossel Personalizado -->
+    <div *ngIf="popularProducts.length > 0" class="custom-carousel">
+      <div class="carousel-inner">
+        <div 
+          *ngFor="let product of popularProducts; let i = index"
+          class="carousel-item"
+          [class.active]="i === currentSlide"
+        >
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            class="carousel-image"
+            onerror="this.src='https://via.placeholder.com/1200x400?text=Image+Not+Found'"
+          />
+          <div class="carousel-caption">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description || 'No description available' }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Indicadores -->
+      <div class="carousel-indicators" *ngIf="popularProducts.length > 1">
+        <button
+          *ngFor="let _ of popularProducts; let i = index"
+          [class.active]="i === currentSlide"
+          (click)="selectSlide(i)"
+        ></button>
+      </div>
+    </div>
+  </div>
+
   <h1>Products</h1>
 
   <p *ngIf="message" class="form-success-message">{{ message }}</p>
