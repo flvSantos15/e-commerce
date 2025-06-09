@@ -40,4 +40,10 @@ export class ProductService {
       'http://localhost:3000/products?_limit=8&_sort=views&_order=desc'
     );
   }
+
+  searchProduct(searchTerm: string): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(
+      `http://localhost:3000/products?q=${searchTerm}`
+    );
+  }
 }

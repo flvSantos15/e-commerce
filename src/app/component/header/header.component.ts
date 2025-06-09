@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { IProduct } from '../../interfaces/product';
 import { AuthService } from '../../services/auth.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-header',
@@ -14,9 +16,14 @@ export class HeaderComponent {
   public menuType: string = 'default';
   public cartItemCount: number = 0;
   public sellerName: string = '';
+  searchResult: IProduct[] = [];
   sellerRoutes: string[] = ['/seller', '/seller-home', '/add-product'];
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private productService: ProductService
+  ) {
     this.cartItemCount = 0;
   }
 
@@ -34,6 +41,20 @@ export class HeaderComponent {
         }
       }
     });
+  }
+
+  handleSearchProduct(event: KeyboardEvent): void {
+    const searchTerm = (event.target as HTMLInputElement).value;
+    this.productService.searchProduct(searchTerm).subscribe((result) => {
+      if (result.length > 5) {
+        result.length = length;
+      }
+      this.searchResult = result;
+    });
+  }
+
+  handleHideSuggestedSearch() {
+    this.searchResult = [];
   }
 
   redirectToLogin(): void {

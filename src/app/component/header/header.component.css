@@ -56,3 +56,24 @@ h1 a {
   text-decoration: none;
   color: blueviolet;
 }
+
+.suggested-search {
+  position: absoute;
+  top: 40px;
+  z-index: 1;
+  display: list-item;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  width: 300px;
+}
+
+.suggested-search li {
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+.suggested-search li a {
+  text-decoration: none;
+  color: blueviolet;
+  cursor: pointer;
+}

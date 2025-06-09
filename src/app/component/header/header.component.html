@@ -4,8 +4,18 @@
   </h1>
 
   <div *ngIf="menuType === 'default'" class="nav-search">
-    <input type="text" placeholder="Search Products" />
+    <input
+      type="text"
+      placeholder="Search Products"
+      (keyup)="handleSearchProduct($event)"
+      (blur)="handleHideSuggestedSearch()"
+    />
     <button>Search</button>
+    <ul class="suggested-search" *ngIf="searchResult.length">
+      <li *ngFor="let product of searchResult">
+        <a>{{ product.name }}</a>
+      </li>
+    </ul>
   </div>
 
   <div [ngSwitch]="menuType">
