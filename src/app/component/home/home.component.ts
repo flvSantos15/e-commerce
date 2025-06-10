@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Subscription, interval } from 'rxjs';
 import { IProduct } from '../../interfaces/product';
@@ -19,7 +20,7 @@ export class HomeComponent {
   isLoading = false;
   private carouselInterval: Subscription | undefined;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadPopularProducts();
@@ -83,5 +84,9 @@ export class HomeComponent {
 
   selectSlide(index: number): void {
     this.currentSlide = index;
+  }
+
+  handleRedirectToProductDetails(id: string): void {
+    this.router.navigate(['product-details', id]);
   }
 }

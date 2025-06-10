@@ -13,6 +13,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductDetailsComponent {
   public product: IProduct | undefined;
+  public quantity: number = 1;
 
   constructor(
     private productService: ProductService,
@@ -25,5 +26,13 @@ export class ProductDetailsComponent {
       this.productService.getProductById(id).subscribe((product) => {
         this.product = product;
       });
+  }
+
+  increaseQuantity(): void {
+    this.quantity++;
+  }
+
+  decreaseQuantity(): void {
+    this.quantity > 1 && this.quantity--;
   }
 }

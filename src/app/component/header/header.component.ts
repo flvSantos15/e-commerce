@@ -68,4 +68,8 @@ export class HeaderComponent {
   onLogout(): void {
     this.authService.logout();
   }
+
+  handleRedirectToProductDetails(id: string): void {
+    this.router.navigate(['details', id]);
+  }
 }
