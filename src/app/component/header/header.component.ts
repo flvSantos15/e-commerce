@@ -57,6 +57,10 @@ export class HeaderComponent {
     this.searchResult = [];
   }
 
+  handleSubmitSearch(searchTerm: string): void {
+    this.router.navigate(['search', searchTerm]);
+  }
+
   redirectToLogin(): void {
     this.router.navigate(['seller'], { queryParams: { showLogin: true } });
   }

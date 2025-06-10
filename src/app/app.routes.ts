@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AddProductComponent } from './component/add-product/add-product.component';
 import { CartComponent } from './component/cart/cart.component';
 import { HomeComponent } from './component/home/home.component';
+import { SearchComponent } from './component/search/search.component';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
 import { SellerComponent } from './component/seller/seller.component';
 import { UpdateProductComponent } from './component/update-product/update-product.component';
@@ -25,6 +26,10 @@ export const routes: Routes = [
     path: 'update-product/:id',
     component: UpdateProductComponent,
     canActivate: [authenticatedGuard],
+  },
+  {
+    path: 'search/:query',
+    component: SearchComponent,
   },
   { path: '**', redirectTo: '' }, // Redirect to home for any unknown routes
 ];

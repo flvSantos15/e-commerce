@@ -47,3 +47,14 @@ body {
   margin: 0px 6px;
   font-size: 20px;
 }
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+}
+
+.col-sm-3 {
+  width: 300px;
+}

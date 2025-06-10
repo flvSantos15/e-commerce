@@ -1,0 +1,26 @@
+.search-item {
+  width: 800px;
+  margin: 25px auto;
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
+}
+
+.search-item img {
+  width: 100px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.search-item h6 {
+  font-size: 24px;
+  color: blueviolet;
+  margin: 0px;
+}
+
+.search-item p {
+  margin-bottom: 5px;
+}
+
+.search-item span {
+  margin-right: 10px;
+}

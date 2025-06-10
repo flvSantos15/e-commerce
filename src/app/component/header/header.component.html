@@ -7,10 +7,11 @@
     <input
       type="text"
       placeholder="Search Products"
+      #searchInput
       (keyup)="handleSearchProduct($event)"
       (blur)="handleHideSuggestedSearch()"
     />
-    <button>Search</button>
+    <button (click)="handleSubmitSearch(searchInput.value)">Search</button>
     <ul class="suggested-search" *ngIf="searchResult.length">
       <li *ngFor="let product of searchResult">
         <a>{{ product.name }}</a>

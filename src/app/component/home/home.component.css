@@ -128,18 +128,6 @@
   }
 } */
 
-.product-list-wrapper .row {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.col-sm-3 {
-  width: 300px;
-}
-
 .product-item {
   margin-bottom: 40px;
   border: 1px solid #ccc;
