@@ -11,10 +11,14 @@
       (keyup)="handleSearchProduct($event)"
       (blur)="handleHideSuggestedSearch()"
     />
+
     <button (click)="handleSubmitSearch(searchInput.value)">Search</button>
+
     <ul class="suggested-search" *ngIf="searchResult.length">
       <li *ngFor="let product of searchResult">
-        <a>{{ product.name }}</a>
+        <a (mousedown)="handleRedirectToProductDetails(product.id!)">{{
+          product.name
+        }}</a>
       </li>
     </ul>
   </div>

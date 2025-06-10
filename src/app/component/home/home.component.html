@@ -42,7 +42,9 @@
   <div class="row">
     <div *ngFor="let product of trendyProducts" class="col-sm-3">
       <div class="product-item">
-        <img src="{{ product.image }}" alt="" />
+        <a (click)="handleRedirectToProductDetails(product.id!)">
+          <img src="{{ product.image }}" alt="" />
+        </a>
 
         <div class="product-details">
           <h6 class="name-head">{{ product.name }}</h6>
@@ -57,7 +59,9 @@
         </div>
 
         <div class="product-footer">
-          <a href="">View Details</a>
+          <a (click)="handleRedirectToProductDetails(product.id!)"
+            >View Details</a
+          >
           <a href="">Add To Cart</a>
         </div>
       </div>

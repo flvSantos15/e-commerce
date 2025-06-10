@@ -25,9 +25,9 @@
       </div>
 
       <div class="quantity-group">
-        <button class="quantity-btn">-</button>
-        <input type="number" value="1" />
-        <button class="quantity-btn">+</button>
+        <button class="quantity-btn" (click)="decreaseQuantity()">-</button>
+        <input type="text" value="{{ quantity }}" />
+        <button class="quantity-btn" (click)="increaseQuantity()">+</button>
       </div>
     </div>
   </div>

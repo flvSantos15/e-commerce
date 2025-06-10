@@ -24,3 +24,7 @@
 .search-item span {
   margin-right: 10px;
 }
+.search-item a {
+  text-decoration: none;
+  cursor: pointer;
+}
