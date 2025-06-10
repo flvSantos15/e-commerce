@@ -1,7 +1,7 @@
 <div class="add-product">
   <h1>Add Product</h1>
 
-  <p *ngIf="message" class="form-success-message">{{ message }}</p>
+  <p *ngIf="message" class="success-message">{{ message }}</p>
 
   <form
     class="common-form"
@@ -11,33 +11,33 @@
   >
     <input
       type="text"
-      class="form-input"
+      class="input"
       formControlName="name"
       placeholder="Product Name"
     />
     <input
       type="text"
-      class="form-input"
+      class="input"
       formControlName="price"
       placeholder="Product Price"
     />
     <textarea
-      class="form-input"
+      class="input"
       formControlName="description"
       placeholder="Product Description"
     ></textarea>
     <input
       type="text"
-      class="form-input"
+      class="input"
       formControlName="image"
       placeholder="Product Image"
     />
-    <select class="form-input" name="category" id="" formControlName="category">
+    <select class="input" name="category" id="" formControlName="category">
       <option *ngFor="let category of categories" [value]="category">
         {{ category }}
       </option>
     </select>
 
-    <button type="submit" class="form-button">Add Product</button>
+    <button type="submit" class="btn btn-primary">Add Product</button>
   </form>
 </div>

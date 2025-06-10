@@ -1,1 +1,34 @@
-<p>product-details works!</p>
+<div class="row product-details" *ngIf="product">
+  <div>
+    <img class="product-image" src="{{ product.image }}" alt="" />
+  </div>
+
+  <div>
+    <div class="details">
+      <h1>{{ product.name }}</h1>
+      <div class="details-item">
+        <strong>Price:</strong>
+        <h3>$ {{ product.price }}</h3>
+      </div>
+      <div class="details-item">
+        <strong>Description:</strong>
+        <h3>{{ product.description }}</h3>
+      </div>
+      <div class="details-item">
+        <strong>Category:</strong>
+        <h3>{{ product.category }}</h3>
+      </div>
+
+      <div class="button-group">
+        <button class="btn btn-primary">Add to Cart</button>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+
+      <div class="quantity-group">
+        <button class="quantity-btn">-</button>
+        <input type="number" value="1" />
+        <button class="quantity-btn">+</button>
+      </div>
+    </div>
+  </div>
+</div>

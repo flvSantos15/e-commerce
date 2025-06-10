@@ -1,10 +1,15 @@
 <div class="row search-item" *ngFor="let product of products">
   <div class="">
-    <img src="{{ product.image }}" alt="" />
+    <a (click)="handleRedirectToProductDetails(product.id!)">
+      <img src="{{ product.image }}" alt="" />
+    </a>
   </div>
 
   <div class="col-sm-8">
-    <h6>{{ product.name }}</h6>
+    <a (click)="handleRedirectToProductDetails(product.id!)">
+      <h6>{{ product.name }}</h6>
+    </a>
+
     <p>
       <strong>Price: {{ product.price }}</strong>
     </p>

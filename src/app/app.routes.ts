@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
+
 import { AddProductComponent } from './component/add-product/add-product.component';
 import { CartComponent } from './component/cart/cart.component';
 import { HomeComponent } from './component/home/home.component';
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
 import { SearchComponent } from './component/search/search.component';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
 import { SellerComponent } from './component/seller/seller.component';
@@ -30,6 +32,10 @@ export const routes: Routes = [
   {
     path: 'search/:query',
     component: SearchComponent,
+  },
+  {
+    path: 'details/:id',
+    component: ProductDetailsComponent,
   },
   { path: '**', redirectTo: '' }, // Redirect to home for any unknown routes
 ];

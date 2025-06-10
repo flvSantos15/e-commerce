@@ -14,7 +14,7 @@ body {
   margin: auto;
 }
 
-.form-input {
+.input {
   height: 35px;
   margin-bottom: 20px;
   border: 1px solid blueviolet;
@@ -23,21 +23,35 @@ body {
   color: blueviolet;
 }
 
-.form-button {
-  height: 35px;
-  background-color: blueviolet;
-  color: white;
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.btn {
   border-radius: 5px;
   cursor: pointer;
   border: none;
+  padding: 10px 15px;
 }
 
-.form-error-message {
+.btn-primary {
+  background-color: blueviolet;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: blueviolet;
+}
+
+.error-message {
   color: red;
   text-align: center;
 }
 
-.form-success-message {
+.success-message {
   text-align: center;
   color: green;
 }

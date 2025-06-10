@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 
@@ -15,7 +15,8 @@ export class SearchComponent {
   products: IProduct[] = [];
   constructor(
     private productService: ProductService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -25,5 +26,9 @@ export class SearchComponent {
       this.productService.searchProduct(query).subscribe((products) => {
         this.products = products;
       });
+  }
+
+  handleRedirectToProductDetails(id: string): void {
+    this.router.navigate(['/details', id]);
   }
 }

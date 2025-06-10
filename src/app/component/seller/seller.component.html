@@ -13,22 +13,22 @@
         formControlName="name"
         type="text"
         placeholder="Name"
-        class="form-input"
+        class="input"
       />
       <input
         formControlName="email"
         type="text"
         placeholder="Email"
-        class="form-input"
+        class="input"
       />
       <input
         formControlName="password"
         type="password"
         placeholder="Password"
-        class="form-input"
+        class="input"
       />
 
-      <button class="form-button">Sign Up</button>
+      <button class="btn btn-primary">Sign Up</button>
       <p class="auth-toggle-link" (click)="openLogin()">
         Already have an account?
       </p>
@@ -38,7 +38,7 @@
   <div *ngIf="showLogin" class="sign-up">
     <h1>Seller Login</h1>
 
-    <p *ngIf="authError" class="form-error-message">{{ authError }}</p>
+    <p *ngIf="authError" class="error-message">{{ authError }}</p>
 
     <form
       class="common-form"
@@ -50,16 +50,16 @@
         formControlName="email"
         type="text"
         placeholder="Email"
-        class="form-input"
+        class="input"
       />
       <input
         formControlName="password"
         type="password"
         placeholder="Password"
-        class="form-input"
+        class="input"
       />
 
-      <button class="form-button">Login</button>
+      <button class="btn btn-primary">Login</button>
       <p class="auth-toggle-link" (click)="closeLogin()">
         Don't have an account?
       </p>
