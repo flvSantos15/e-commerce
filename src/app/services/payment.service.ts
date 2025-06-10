@@ -35,6 +35,7 @@ export class PaymentService {
   constructor(private http: HttpClient) {}
 
   createPayment(payment: IPayment): Observable<void> {
+    // A regra fica na API e nao aqui
     return this.http.post<void>('http://localhost:3000/payments', payment);
   }
 }
