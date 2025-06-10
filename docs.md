@@ -1,0 +1,6 @@
+- Create an API for users (buyers)
+- Create a notification system for users (buyers)
+- Create a notification system for sellers
+- Create payment system
+- Create order system
+- Create a rating system
