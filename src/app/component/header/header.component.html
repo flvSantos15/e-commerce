@@ -35,15 +35,12 @@
       </li>
     </ul>
 
-    <ul *ngSwitchCase="'seller'">
-      <li>
-        <a routerLink="add-product" routerLinkActive="active">Add Product</a>
-      </li>
-      <li><a routerLink="seller-home" routerLinkActive="active">List</a></li>
-      <li (click)="onLogout()" routerLinkActive="active">Logout</li>
-      <li>
-        <a routerLinkActive="active">{{ sellerName | titlecase }}</a>
-      </li>
-    </ul>
+    <ng-container *ngSwitchCase="'seller'">
+      <app-seller-menu [sellerName]="sellerName"></app-seller-menu>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'user'">
+      <app-user-menu [userName]="userName"></app-user-menu>
+    </ng-container>
   </div>
 </nav>

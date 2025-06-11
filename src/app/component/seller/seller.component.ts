@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { SellerService } from '../../services/seller.service';
 
 @Component({
   selector: 'app-seller',
@@ -24,7 +24,7 @@ export class SellerComponent implements OnInit {
   public signInForm: FormGroup;
 
   constructor(
-    private authService: AuthService,
+    private sellerService: SellerService,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) {
@@ -41,7 +41,7 @@ export class SellerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.reloadSeller();
+    this.sellerService.reloadSeller();
     this.activeRoute.queryParams.subscribe((params) => {
       if (params['showLogin']) {
         this.showLogin = true;
@@ -52,7 +52,7 @@ export class SellerComponent implements OnInit {
   }
 
   onSignUp(): void {
-    this.authService.signUp(this.signUpForm.value);
+    this.sellerService.signUp(this.signUpForm.value);
 
     setTimeout(() => {
       this.loading = false;
@@ -62,8 +62,8 @@ export class SellerComponent implements OnInit {
   }
 
   onLogin(): void {
-    this.authService.login(this.signInForm.value);
-    this.authService.isLoginError.subscribe((error) => {
+    this.sellerService.login(this.signInForm.value);
+    this.sellerService.isLoginError.subscribe((error) => {
       if (error) {
         this.authError = 'Invalid email or password';
       }
