@@ -1,5 +1,11 @@
 :root {
   --primary-color: blue;
+  --error-message: red;
+  --success-message: green;
+  --title-color: blue;
+  --text-color: #fff;
+  --primary-button-color: blue;
+  --secondary-button-color: blue;
 }
 
 body {
@@ -7,8 +13,11 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   margin-left: 10px;
   margin-right: 10px;
+  height: 96vh;
 }
 
 .form-container {
@@ -18,12 +27,11 @@ body {
   justify-content: center;
   gap: 1.5rem;
   text-align: center;
-  height: 80vh;
   padding-top: 1rem;
 }
 
 .form-container h1 {
-  color: blue;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -80,13 +88,13 @@ body {
 }
 
 .error-message {
-  color: red;
+  color: var(--error-message);
   text-align: center;
 }
 
 .success-message {
   text-align: center;
-  color: green;
+  color: var(--success-message);
 }
 
 .icon-button {
