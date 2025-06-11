@@ -1,26 +1,51 @@
+:root {
+  --primary-color: blue;
+}
+
 body {
   font-family: sans-serif;
 }
 
 .container {
-  margin-left: 5%
-  margin-right: 5%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  height: 80vh;
+  padding-top: 1rem;
+}
+
+.form-container h1 {
+  color: blue;
+  margin: 0;
 }
 
 .common-form {
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: auto;
 }
 
 .input {
   height: 35px;
   margin-bottom: 20px;
-  border: 1px solid blueviolet;
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
   padding-left: 15px;
-  color: blueviolet;
+  color: var(--primary-color);
+}
+.input:focus {
+  outline: 1px solid var(--primary-color);
+}
+.input:hover {
+  border: 1px solid var(--primary-color);
 }
 
 .button-group {
@@ -29,21 +54,29 @@ body {
   margin: 10px 0px;
 }
 
+.form-footer-link {
+  margin: 8px 0px 0px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
 .btn {
   border-radius: 5px;
   cursor: pointer;
   border: none;
   padding: 10px 15px;
+  font-size: 1rem;
 }
 
 .btn-primary {
-  background-color: blueviolet;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .btn-secondary {
   background-color: #ccc;
-  color: blueviolet;
+  color: var(--primary-color);
 }
 
 .error-message {

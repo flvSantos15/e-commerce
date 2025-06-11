@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="form-container">
+  <h1>User Signup</h1>
+
+  <form
+    class="common-form"
+    [formGroup]="signUpForm"
+    name="signUpForm"
+    (ngSubmit)="onSignUp()"
+  >
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Name"
+      class="input"
+    />
+    <input
+      formControlName="email"
+      type="text"
+      placeholder="Email"
+      class="input"
+    />
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+      class="input"
+    />
+
+    <button class="btn btn-primary">Sign Up</button>
+    <p class="form-footer-link">Already have an account?</p>
+  </form>
+</div>

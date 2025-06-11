@@ -1,5 +1,5 @@
 <div class="seller">
-  <div *ngIf="!showLogin" class="sign-up">
+  <div *ngIf="!showLogin" class="form-container">
     <h1>Seller Sign Up</h1>
 
     <!-- #sellerSignUpForm="" -->
@@ -29,13 +29,13 @@
       />
 
       <button class="btn btn-primary">Sign Up</button>
-      <p class="auth-toggle-link" (click)="openLogin()">
+      <p class="form-footer-link" (click)="openLogin()">
         Already have an account?
       </p>
     </form>
   </div>
 
-  <div *ngIf="showLogin" class="sign-up">
+  <div *ngIf="showLogin" class="form-container">
     <h1>Seller Login</h1>
 
     <p *ngIf="authError" class="error-message">{{ authError }}</p>
@@ -60,7 +60,7 @@
       />
 
       <button class="btn btn-primary">Login</button>
-      <p class="auth-toggle-link" (click)="closeLogin()">
+      <p class="form-footer-link" (click)="closeLogin()">
         Don't have an account?
       </p>
     </form>
