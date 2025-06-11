@@ -5,7 +5,7 @@
 }
 
 .nav h1 {
-  color: blueviolet;
+  color: var(--primary-color);
   font-size: 40px;
 
   margin: 0px;
@@ -21,15 +21,19 @@
 
 .nav .nav-search input {
   flex: 1;
-  color: blueviolet;
-  border: 1px solid blueviolet;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   height: 35px;
   border-right: none;
 }
 
+.nav .nav-search input:focus {
+  outline: 1px solid var(--primary-color);
+}
+
 .nav .nav-search button {
-  color: blueviolet;
-  border: 1px solid blueviolet;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   height: 39px;
 }
 
@@ -43,18 +47,18 @@
 .nav ul li {
   padding-left: 15px;
   padding-top: 15px;
-  color: blueviolet;
+  color: var(--primary-color);
   cursor: pointer;
 }
 
 .nav ul a {
   text-decoration: none;
-  color: blueviolet;
+  color: var(--primary-color);
 }
 
 h1 a {
   text-decoration: none;
-  color: blueviolet;
+  color: var(--primary-color);
 }
 
 .suggested-search {
@@ -74,6 +78,6 @@ h1 a {
 
 .suggested-search li a {
   text-decoration: none;
-  color: blueviolet;
+  color: var(--primary-color);
   cursor: pointer;
 }

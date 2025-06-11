@@ -27,7 +27,7 @@
     <ul *ngSwitchCase="'default'">
       <li><a routerLink="seller" routerLinkActive="active">Seller</a></li>
       <li><a routerLink="" routerLinkActive="active">Home</a></li>
-      <li (click)="redirectToLogin()" routerLinkActive="active">Login</li>
+      <li routerLink="login" routerLinkActive="active">Login/Signup</li>
       <li>
         <a routerLink="cart" routerLinkActive="active">
           Cart ({{ cartItemCount }})
