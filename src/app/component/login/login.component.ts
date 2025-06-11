@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,11 @@ import {
 })
 export class LoginComponent {
   public signUpForm: FormGroup;
+  public isLoading: boolean = false;
+  public messageError: string = '';
+  public messageSuccess: string = '';
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.signUpForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
@@ -25,5 +29,15 @@ export class LoginComponent {
     });
   }
 
-  onSignUp() {}
+  onSignUp() {
+    this.isLoading = true;
+
+    this.authService.signUp(this.signUpForm.value);
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+
+    this.signUpForm.reset();
+  }
 }
