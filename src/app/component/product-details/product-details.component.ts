@@ -39,13 +39,14 @@ export class ProductDetailsComponent {
   }
 
   handleAddProductToCart(product: IProduct): void {
-    const user = localStorage.getItem('user');
+    const userStorage = localStorage.getItem('user');
+    const user = userStorage ? JSON.parse(userStorage) : null;
     if (!user) {
       alert('User not logged in');
       return;
     }
 
-    this.cartService.addToCart(product, this.quantity);
+    this.cartService.addToCart(product.id!, this.quantity, user.id);
     alert('Product added to cart');
   }
 }
