@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../../interfaces/product';
+import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class ProductDetailsComponent {
 
   constructor(
     private productService: ProductService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -34,5 +36,16 @@ export class ProductDetailsComponent {
 
   decreaseQuantity(): void {
     this.quantity > 1 && this.quantity--;
+  }
+
+  handleAddProductToCart(product: IProduct): void {
+    const user = localStorage.getItem('user');
+    if (!user) {
+      alert('User not logged in');
+      return;
+    }
+
+    this.cartService.addToCart(product, this.quantity);
+    alert('Product added to cart');
   }
 }

@@ -20,7 +20,12 @@
       </div>
 
       <div class="button-group">
-        <button class="btn btn-primary">Add to Cart</button>
+        <button
+          class="btn btn-primary"
+          (click)="handleAddProductToCart(product)"
+        >
+          Add to Cart
+        </button>
         <button class="btn btn-primary">Buy Now</button>
       </div>
 

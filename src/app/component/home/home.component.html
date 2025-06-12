@@ -59,10 +59,18 @@
         </div>
 
         <div class="product-footer">
-          <a (click)="handleRedirectToProductDetails(product.id!)"
-            >View Details</a
+          <button
+            class="btn btn-tertiary"
+            (click)="handleRedirectToProductDetails(product.id!)"
           >
-          <a (click)="handleAddProductToCart(product)">Add To Cart</a>
+            View Details
+          </button>
+          <button
+            class="btn btn-primary"
+            (click)="handleAddProductToCart(product)"
+          >
+            Add To Cart
+          </button>
         </div>
       </div>
     </div>

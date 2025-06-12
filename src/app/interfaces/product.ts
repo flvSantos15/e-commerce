@@ -5,4 +5,7 @@ export interface IProduct {
   description: string;
   image: string;
   category: string;
+  stock: number;
+  createdAt: string;
+  updatedAt: string;
 }

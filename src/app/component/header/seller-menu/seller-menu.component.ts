@@ -12,6 +12,7 @@ import { SellerService } from '../../../services/seller.service';
 })
 export class SellerMenuComponent {
   @Input() public sellerName: string = '';
+  @Input() public cartItemCount: number = 0;
 
   constructor(private sellerService: SellerService) {}
 

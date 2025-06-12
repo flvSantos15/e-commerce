@@ -26,17 +26,26 @@
       formControlName="description"
       placeholder="Product Description"
     ></textarea>
+
     <input
       type="text"
       class="input"
       formControlName="image"
       placeholder="Product Image"
     />
+
     <select class="input" name="category" id="" formControlName="category">
       <option *ngFor="let category of categories" [value]="category">
         {{ category }}
       </option>
     </select>
+
+    <input
+      type="number"
+      class="input"
+      formControlName="stock"
+      placeholder="Product Stock"
+    />
 
     <button type="submit" class="btn btn-primary">Update Product</button>
   </form>

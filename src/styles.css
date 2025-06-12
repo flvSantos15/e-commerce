@@ -88,6 +88,13 @@ body {
   color: var(--primary-color);
 }
 
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+  text-decoration: underline;
+}
+
 .error-message {
   color: var(--error-message);
   text-align: center;

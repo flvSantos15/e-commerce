@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { IProduct } from '../../interfaces/product';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { SellerMenuComponent } from './seller-menu/seller-menu.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
@@ -25,12 +26,15 @@ export class HeaderComponent {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) {
     this.cartItemCount = 0;
   }
 
   ngOnInit(): void {
+    this.cartItemCount = this.cartService.getCartCount();
+
     this.router.events.subscribe((event: any) => {
       if (event.url) {
         const sellerStorage = localStorage.getItem('seller');

@@ -87,7 +87,7 @@ export class HomeComponent {
   }
 
   handleRedirectToProductDetails(id: string): void {
-    this.router.navigate(['product-details', id]);
+    this.router.navigate(['details', id]);
   }
 
   handleAddProductToCart(product: IProduct): void {

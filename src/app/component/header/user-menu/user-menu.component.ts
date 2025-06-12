@@ -12,6 +12,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class UserMenuComponent {
   @Input() public userName: string = '';
+  @Input() public cartItemCount: number = 0;
 
   constructor(private authService: AuthService) {}
 
