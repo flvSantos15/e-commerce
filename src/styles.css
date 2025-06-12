@@ -114,3 +114,9 @@ body {
 .col-sm-3 {
   width: 300px;
 }
+
+.invalid-input-field {
+  color: var(--error-message);
+  font-size: 0.625rem;
+  margin-top: -1rem;
+}

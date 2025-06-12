@@ -89,4 +89,10 @@ export class HomeComponent {
   handleRedirectToProductDetails(id: string): void {
     this.router.navigate(['product-details', id]);
   }
+
+  handleAddProductToCart(product: IProduct): void {
+    // chamar servico de adicionar produto ao carrinho
+    // no servico vou adicionar esse produto em localStorage
+    this.router.navigate(['cart']);
+  }
 }

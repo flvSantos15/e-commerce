@@ -14,18 +14,21 @@
       type="text"
       placeholder="Name"
       class="input"
+      required
     />
     <input
       formControlName="email"
       type="text"
       placeholder="Email"
       class="input"
+      required
     />
     <input
       formControlName="password"
       type="password"
       placeholder="Password"
       class="input"
+      required
     />
 
     <button class="btn btn-primary">Sign Up</button>
@@ -51,13 +54,26 @@
       type="text"
       placeholder="Email"
       class="input"
+      required
     />
+    <!-- <p>
+      <span *ngIf="signInForm.get('email')?.hasError('required')"
+        >Email is required</span
+      >
+    </p> -->
+
     <input
       formControlName="password"
       type="password"
       placeholder="Password"
       class="input"
+      required
     />
+    <!-- <p>
+      <span *ngIf="signInForm.get('password')?.hasError('required')"
+        >Password is required</span
+      >
+    </p> -->
 
     <button class="btn btn-primary">Sign In</button>
     <p class="form-footer-link" (click)="closeLoginForm()">
