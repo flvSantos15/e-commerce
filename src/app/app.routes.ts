@@ -13,7 +13,6 @@ import { authenticatedGuard } from './guards/authenticated.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'cart', component: CartComponent, canActivate: [authenticatedGuard] },
   { path: 'seller', component: SellerComponent },
   {
     path: 'seller-home',
@@ -41,6 +40,11 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [authenticatedGuard],
   },
   { path: '**', redirectTo: '' }, // Redirect to home for any unknown routes
 ];

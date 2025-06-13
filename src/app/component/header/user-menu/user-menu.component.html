@@ -5,7 +5,9 @@
   </li>
   <li (click)="onLogout()" routerLinkActive="active">Logout</li>
 
-  <li (click)="onLogout()" routerLinkActive="active">
-    Cart({{ cartItemCount }})
+  <li>
+    <a routerLink="cart" routerLinkActive="active">
+      Cart({{ cartItemCount }})
+    </a>
   </li>
 </ul>
