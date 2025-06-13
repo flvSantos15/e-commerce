@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Subscription, interval } from 'rxjs';
 import { IProduct } from '../../interfaces/product';
+import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -20,7 +21,11 @@ export class HomeComponent {
   isLoading = false;
   private carouselInterval: Subscription | undefined;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.loadPopularProducts();
@@ -87,6 +92,19 @@ export class HomeComponent {
   }
 
   handleRedirectToProductDetails(id: string): void {
-    this.router.navigate(['product-details', id]);
+    this.router.navigate(['details', id]);
+  }
+
+  handleAddProductToCart(id: string): void {
+    const userStorage = localStorage.getItem('user');
+    const user = userStorage ? JSON.parse(userStorage) : null;
+    if (!user) {
+      alert('User not logged in');
+      return;
+    }
+
+    this.cartService.addToCart(id, 1, user.id);
+
+    this.router.navigate(['cart']);
   }
 }

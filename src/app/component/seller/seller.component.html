@@ -1,68 +1,66 @@
-<div class="seller">
-  <div *ngIf="!showLogin" class="form-container">
-    <h1>Seller Sign Up</h1>
+<div *ngIf="!showLogin" class="form-container">
+  <h1>Seller Sign Up</h1>
 
-    <!-- #sellerSignUpForm="" -->
-    <form
-      class="common-form"
-      [formGroup]="signUpForm"
-      name="signUpForm"
-      (ngSubmit)="onSignUp()"
-    >
-      <input
-        formControlName="name"
-        type="text"
-        placeholder="Name"
-        class="input"
-      />
-      <input
-        formControlName="email"
-        type="text"
-        placeholder="Email"
-        class="input"
-      />
-      <input
-        formControlName="password"
-        type="password"
-        placeholder="Password"
-        class="input"
-      />
+  <!-- #sellerSignUpForm="" -->
+  <form
+    class="common-form"
+    [formGroup]="signUpForm"
+    name="signUpForm"
+    (ngSubmit)="onSignUp()"
+  >
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Name"
+      class="input"
+    />
+    <input
+      formControlName="email"
+      type="text"
+      placeholder="Email"
+      class="input"
+    />
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+      class="input"
+    />
 
-      <button class="btn btn-primary">Sign Up</button>
-      <p class="form-footer-link" (click)="openLogin()">
-        Already have an account?
-      </p>
-    </form>
-  </div>
+    <button class="btn btn-primary">Sign Up</button>
+    <p class="form-footer-link" (click)="openLogin()">
+      Already have an account?
+    </p>
+  </form>
+</div>
 
-  <div *ngIf="showLogin" class="form-container">
-    <h1>Seller Login</h1>
+<div *ngIf="showLogin" class="form-container">
+  <h1>Seller Login</h1>
 
-    <p *ngIf="authError" class="error-message">{{ authError }}</p>
+  <p *ngIf="authError" class="error-message">{{ authError }}</p>
 
-    <form
-      class="common-form"
-      [formGroup]="signInForm"
-      name="signInForm"
-      (ngSubmit)="onLogin()"
-    >
-      <input
-        formControlName="email"
-        type="text"
-        placeholder="Email"
-        class="input"
-      />
-      <input
-        formControlName="password"
-        type="password"
-        placeholder="Password"
-        class="input"
-      />
+  <form
+    class="common-form"
+    [formGroup]="signInForm"
+    name="signInForm"
+    (ngSubmit)="onLogin()"
+  >
+    <input
+      formControlName="email"
+      type="text"
+      placeholder="Email"
+      class="input"
+    />
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+      class="input"
+    />
 
-      <button class="btn btn-primary">Login</button>
-      <p class="form-footer-link" (click)="closeLogin()">
-        Don't have an account?
-      </p>
-    </form>
-  </div>
+    <button class="btn btn-primary">Login</button>
+    <p class="form-footer-link" (click)="closeLogin()">
+      Don't have an account?
+    </p>
+  </form>
 </div>

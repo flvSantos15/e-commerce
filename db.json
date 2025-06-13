@@ -65,5 +65,13 @@
       "category": "smartphone"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "e794",
+      "name": "Flavio",
+      "email": "flavio@user.com",
+      "password": "123456"
+    }
+  ],
+  "orders": []
 }

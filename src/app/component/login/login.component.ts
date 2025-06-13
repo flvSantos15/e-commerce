@@ -17,6 +17,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
   public signUpForm: FormGroup;
+  public signInForm: FormGroup;
+  public showLoginForm: boolean = false;
   public isLoading: boolean = false;
   public messageError: string = '';
   public messageSuccess: string = '';
@@ -27,17 +29,54 @@ export class LoginComponent {
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
+
+    this.signInForm = new FormGroup({
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+    });
+  }
+
+  openLoginForm() {
+    this.showLoginForm = true;
+  }
+
+  closeLoginForm() {
+    this.showLoginForm = false;
   }
 
   onSignUp() {
     this.isLoading = true;
 
     this.authService.signUp(this.signUpForm.value);
+    this.authService.isLoginError.subscribe((error) => {
+      if (error) {
+        this.messageError = 'Invalid email or password';
 
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
+        setTimeout(() => {
+          this.messageError = '';
+        }, 4000);
+      }
+    });
 
     this.signUpForm.reset();
+  }
+
+  onSignIn() {
+    this.isLoading = true;
+
+    this.authService.login(this.signInForm.value);
+    this.authService.isLoginError.subscribe((error) => {
+      if (error) {
+        this.messageError = 'Invalid email or password';
+
+        setTimeout(() => {
+          this.messageError = '';
+        }, 4000);
+      } else {
+        this.messageSuccess = 'Login successful';
+      }
+    });
+
+    this.signInForm.reset();
   }
 }

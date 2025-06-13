@@ -3,7 +3,7 @@
     <a routerLink="/">E-commerce</a>
   </h1>
 
-  <div *ngIf="menuType === 'default'" class="nav-search">
+  <div *ngIf="menuType !== 'seller'" class="nav-search">
     <input
       type="text"
       placeholder="Search Products"
@@ -36,11 +36,17 @@
     </ul>
 
     <ng-container *ngSwitchCase="'seller'">
-      <app-seller-menu [sellerName]="sellerName"></app-seller-menu>
+      <app-seller-menu
+        [sellerName]="sellerName"
+        [cartItemCount]="cartItemCount"
+      ></app-seller-menu>
     </ng-container>
 
     <ng-container *ngSwitchCase="'user'">
-      <app-user-menu [userName]="userName"></app-user-menu>
+      <app-user-menu
+        [userName]="userName"
+        [cartItemCount]="cartItemCount"
+      ></app-user-menu>
     </ng-container>
   </div>
 </nav>
