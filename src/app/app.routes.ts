@@ -5,6 +5,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
+import { OrderComponent } from './component/order/order.component';
 import { ProductDetailsComponent } from './component/product-details/product-details.component';
 import { SearchComponent } from './component/search/search.component';
 import { SellerHomeComponent } from './component/seller-home/seller-home.component';
@@ -50,6 +51,11 @@ export const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+    canActivate: [authenticatedGuard],
+  },
+  {
+    path: 'order',
+    component: OrderComponent,
     canActivate: [authenticatedGuard],
   },
   { path: '**', redirectTo: '' }, // Redirect to home for any unknown routes
