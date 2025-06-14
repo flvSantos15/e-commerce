@@ -1,0 +1,31 @@
+<div class="order-container">
+  <h2>Orders</h2>
+
+  <div class="order-content">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Price</th>
+          <th>Cancel Order</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.id || "" }}</td>
+          <td>{{ order.status || "" }}</td>
+          <td>{{ order.totalAmount || "" }}</td>
+          <td>
+            <button
+              class="btn btn-danger"
+              (click)="handleCancelOrder(order.id)"
+            >
+              Cancel Order
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -5,38 +5,79 @@
     <div class="checkout-left">
       <h2>Shipping Information</h2>
 
-      <form class="common-form">
+      <form
+        class="common-form"
+        [formGroup]="shippingForm"
+        name="shippingForm"
+        (ngSubmit)="handleCreateAddress()"
+      >
         <div class="input-container">
           <label for="email">Email: </label>
-          <input type="email" id="email" name="email" class="input" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="input"
+            formControlName="email"
+          />
         </div>
 
         <div class="input-container">
           <label for="address">Address: </label>
-          <input type="text" id="address" name="address" class="input" />
+          <input
+            type="text"
+            id="address"
+            name="address"
+            class="input"
+            formControlName="address"
+          />
         </div>
 
         <div class="input-group">
           <div class="input-container">
             <label for="city">City: </label>
-            <input type="text" id="city" name="city" class="input" />
+            <input
+              type="text"
+              id="city"
+              name="city"
+              class="input"
+              formControlName="city"
+            />
           </div>
 
           <div class="input-container">
             <label for="state">State: </label>
-            <input type="text" id="state" name="state" class="input" />
+            <input
+              type="text"
+              id="state"
+              name="state"
+              class="input"
+              formControlName="state"
+            />
           </div>
         </div>
 
         <div class="input-group">
           <div class="input-container">
             <label for="zip">Zip: </label>
-            <input type="text" id="zip" name="zip" class="input" />
+            <input
+              type="text"
+              id="zip"
+              name="zip"
+              class="input"
+              formControlName="zip"
+            />
           </div>
 
           <div class="input-container">
             <label for="country">Country: </label>
-            <input type="text" id="country" name="country" class="input" />
+            <input
+              type="text"
+              id="country"
+              name="country"
+              class="input"
+              formControlName="country"
+            />
           </div>
         </div>
 
@@ -58,7 +99,13 @@
           <p>USD {{ total }}</p>
         </div>
 
-        <button type="submit" class="btn btn-primary">Checkout</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (ngSubmit)="handleCreateOrder()"
+        >
+          Checkout
+        </button>
       </div>
     </div>
   </div>
