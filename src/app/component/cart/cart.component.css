@@ -4,57 +4,59 @@
   width: 100%;
 }
 
-.cart-content table {
-  border-collapse: collapse;
-}
-
-.cart-content table th,
-.cart-content table td {
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  gap: 1rem;
   padding: 1rem;
   border: 1px solid #ccc;
 }
 
-.cart-content table tr {
-  border: 1px solid #ccc;
+.cart-items ul {
+  display: flex;
+  border-bottom: 1px solid #ccc;
 }
 
-.cart-content table th,
-.cart-content table td {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+.cart-items ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
 }
 
-.cart-content table img {
+.cart-items img {
   width: 100px;
 }
 
-.cart-content table button {
+.cart-items button {
   padding: 0.5rem 1rem;
 }
 
-.cart-content table button:hover {
+.cart-items button:hover {
   cursor: pointer;
 }
 
-.cart-content table button:active {
+.cart-items ul li button:active {
   background-color: #ccc;
 }
 
-.cart-content table button:disabled {
+.cart-items ul li button:disabled {
   cursor: not-allowed;
   background-color: #ccc;
 }
 
-.cart-content table button:disabled:hover {
+.cart-items ul li button:disabled:hover {
   cursor: not-allowed;
 }
 
-.cart-content table button:disabled:active {
+.cart-items ul li button:disabled:active {
   background-color: #ccc;
 }
 
-.cart-content table button:disabled:active:hover {
+.cart-items ul li button:disabled:active:hover {
   cursor: not-allowed;
 }
 

@@ -21,7 +21,7 @@ export class HeaderComponent {
   public sellerName: string = '';
   public userName: string = '';
   searchResult: IProduct[] = [];
-  sellerRoutes: string[] = ['/seller', '/seller-home', '/add-product'];
+  privateRoutes: string[] = ['/seller', '/seller-home', '/add-product'];
 
   constructor(
     private router: Router,
@@ -31,37 +31,41 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit(): void {
-    const cartStorage = this.cartService.getCartStorage();
-    if (cartStorage) {
-      this.cartItemCount = cartStorage.reduce(
-        (count: number, item: CartItem) => count + item.quantity,
-        0
-      );
-    }
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.userName = JSON.parse(user).name;
 
-    this.cartService.cartEmitter.subscribe((items) => {
-      this.cartItemCount = items.reduce(
-        (count: number, item: CartItem) => count + item.quantity,
-        0
-      );
-    });
+      const cartStorage = this.cartService.getCartStorage();
+      if (cartStorage) {
+        this.cartItemCount = cartStorage.reduce(
+          (count: number, item: CartItem) => count + item.quantity,
+          0
+        );
+      }
+
+      this.cartService.cartEmitter.subscribe((items) => {
+        this.cartItemCount = items.reduce(
+          (count: number, item: CartItem) => count + item.quantity,
+          0
+        );
+      });
+    }
 
     this.router.events.subscribe((event: any) => {
       if (event.url) {
         const sellerStorage = localStorage.getItem('seller');
         const userStorage = localStorage.getItem('user');
 
-        if (sellerStorage && this.sellerRoutes.includes(event.url)) {
+        if (sellerStorage && this.privateRoutes.includes(event.url)) {
           const sellerData = JSON.parse(sellerStorage);
           this.sellerName = sellerData.name;
 
           this.menuType = 'seller';
         } else if (userStorage) {
-          const userData = JSON.parse(userStorage);
-          this.userName = userData.name;
           this.menuType = 'user';
         } else {
           this.menuType = 'default';
+          this.cartItemCount = 0;
         }
       }
     });

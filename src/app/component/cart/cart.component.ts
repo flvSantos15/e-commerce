@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartItem, CartService } from '../../services/cart.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class CartComponent {
   cartItems: CartItem[] = [];
   total: string = '0';
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems().map((item) => {
@@ -31,5 +32,9 @@ export class CartComponent {
 
   removeFromCart(id: string) {
     this.cartService.removeItem(id);
+  }
+
+  handleRedirectToCheckoutPage() {
+    this.router.navigate(['checkout']);
   }
 }

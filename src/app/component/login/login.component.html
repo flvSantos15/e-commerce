@@ -3,39 +3,41 @@
 
   <p *ngIf="messageError" class="error-message">{{ messageError }}</p>
 
-  <form
-    class="common-form"
-    [formGroup]="signUpForm"
-    name="signUpForm"
-    (ngSubmit)="onSignUp()"
-  >
-    <input
-      formControlName="name"
-      type="text"
-      placeholder="Name"
-      class="input"
-      required
-    />
-    <input
-      formControlName="email"
-      type="text"
-      placeholder="Email"
-      class="input"
-      required
-    />
-    <input
-      formControlName="password"
-      type="password"
-      placeholder="Password"
-      class="input"
-      required
-    />
+  <div class="login-form">
+    <form
+      class="common-form"
+      [formGroup]="signUpForm"
+      name="signUpForm"
+      (ngSubmit)="onSignUp()"
+    >
+      <input
+        formControlName="name"
+        type="text"
+        placeholder="Name"
+        class="input"
+        required
+      />
+      <input
+        formControlName="email"
+        type="text"
+        placeholder="Email"
+        class="input"
+        required
+      />
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        class="input"
+        required
+      />
 
-    <button class="btn btn-primary">Sign Up</button>
-    <p class="form-footer-link" (click)="openLoginForm()">
-      Already have an account?
-    </p>
-  </form>
+      <button class="btn btn-primary">Sign Up</button>
+      <p class="form-footer-link" (click)="openLoginForm()">
+        Already have an account?
+      </p>
+    </form>
+  </div>
 </div>
 
 <div class="form-container" *ngIf="showLoginForm">
@@ -43,41 +45,43 @@
 
   <p *ngIf="messageError" class="error-message">{{ messageError }}</p>
 
-  <form
-    class="common-form"
-    [formGroup]="signInForm"
-    name="signInForm"
-    (ngSubmit)="onSignIn()"
-  >
-    <input
-      formControlName="email"
-      type="text"
-      placeholder="Email"
-      class="input"
-      required
-    />
-    <!-- <p>
-      <span *ngIf="signInForm.get('email')?.hasError('required')"
-        >Email is required</span
-      >
-    </p> -->
+  <div class="login-form">
+    <form
+      class="common-form"
+      [formGroup]="signInForm"
+      name="signInForm"
+      (ngSubmit)="onSignIn()"
+    >
+      <input
+        formControlName="email"
+        type="text"
+        placeholder="Email"
+        class="input"
+        required
+      />
+      <!-- <p>
+        <span *ngIf="signInForm.get('email')?.hasError('required')"
+          >Email is required</span
+        >
+      </p> -->
 
-    <input
-      formControlName="password"
-      type="password"
-      placeholder="Password"
-      class="input"
-      required
-    />
-    <!-- <p>
-      <span *ngIf="signInForm.get('password')?.hasError('required')"
-        >Password is required</span
-      >
-    </p> -->
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        class="input"
+        required
+      />
+      <!-- <p>
+        <span *ngIf="signInForm.get('password')?.hasError('required')"
+          >Password is required</span
+        >
+      </p> -->
 
-    <button class="btn btn-primary">Sign In</button>
-    <p class="form-footer-link" (click)="closeLoginForm()">
-      Don't have an account?
-    </p>
-  </form>
+      <button class="btn btn-primary">Sign In</button>
+      <p class="form-footer-link" (click)="closeLoginForm()">
+        Don't have an account?
+      </p>
+    </form>
+  </div>
 </div>
