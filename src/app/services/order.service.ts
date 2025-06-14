@@ -9,8 +9,13 @@ import { IOrder } from '../interfaces/order';
 export class OrderService {
   constructor(private http: HttpClient) {}
 
-  createOrder(order: IOrder) {
+  createOrder(orderData: IOrder) {
     // Criar um aviso de ordem criada e que falta o pagamento
+    const order: IOrder = {
+      ...orderData,
+      status: 'pending',
+    };
+
     return this.http.post('http://localhost:3000/orders', order);
   }
 
@@ -25,6 +30,13 @@ export class OrderService {
   updateOrder(id: string, order: IOrder) {
     // Criar um aviso de ordem atualizada
     this.http.put(`http://localhost:3000/orders/${id}`, order);
+  }
+
+  cancelOrder(id: string) {
+    // Criar um aviso de ordem cancelada
+    this.http.put(`http://localhost:3000/orders/${id}`, {
+      status: 'cancelled',
+    });
   }
 
   deleteOrder(id: string) {
