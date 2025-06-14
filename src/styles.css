@@ -39,12 +39,27 @@ body {
 .common-form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  gap: 1rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-container label {
+  margin-bottom: 5px;
 }
 
 .input {
   height: 35px;
-  margin-bottom: 20px;
   border: 1px solid var(--primary-color);
   border-radius: 5px;
   padding-left: 15px;
