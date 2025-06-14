@@ -2,37 +2,22 @@
   <h1>Cart Page</h1>
 
   <div class="cart-content">
-    <table>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Subtotal</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of cartItems">
-          <td>
-            <img [src]="item.image" alt="" />
-          </td>
-          <td>{{ item.name }}</td>
-          <td>USD {{ onFormatPrice(item.price) }}</td>
-          <td>{{ item.quantity }}</td>
-          <td>USD {{ onFormatPrice(item.price * item.quantity) }}</td>
-          <td>
-            <button
-              class="btn btn-secondary"
-              (click)="removeFromCart(item.id!)"
-            >
-              Remove
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="cart-items">
+      <ul *ngFor="let item of cartItems">
+        <li>
+          <img src="{{ item.image }}" alt="" />
+        </li>
+        <li>{{ item.name }}</li>
+        <li>USD {{ onFormatPrice(item.price) }}</li>
+        <li>{{ item.quantity }}</li>
+        <li>USD {{ onFormatPrice(item.price * item.quantity) }}</li>
+        <li>
+          <button class="btn btn-secondary" (click)="removeFromCart(item.id!)">
+            Remove
+          </button>
+        </li>
+      </ul>
+    </div>
 
     <div class="cart-checkout">
       <h2>Summary</h2>
@@ -52,7 +37,9 @@
         </div>
       </div>
 
-      <button class="btn btn-primary">Checkout</button>
+      <button class="btn btn-primary" (click)="handleRedirectToCheckoutPage()">
+        Checkout
+      </button>
     </div>
   </div>
 </div>

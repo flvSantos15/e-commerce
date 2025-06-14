@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { AddProductComponent } from './component/add-product/add-product.component';
 import { CartComponent } from './component/cart/cart.component';
+import { CheckoutComponent } from './component/checkout/checkout.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { ProductDetailsComponent } from './component/product-details/product-details.component';
@@ -44,6 +45,11 @@ export const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+    canActivate: [authenticatedGuard],
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
     canActivate: [authenticatedGuard],
   },
   { path: '**', redirectTo: '' }, // Redirect to home for any unknown routes
