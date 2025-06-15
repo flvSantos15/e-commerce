@@ -17,21 +17,24 @@ export class CartComponent {
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItems().map((item) => {
-      return {
-        ...item,
-        price: Number(item.price),
-      };
+    this.cartItems = this.cartService.getCartStorage();
+    this.cartService.cartEmitter.subscribe((items) => {
+      this.cartItems = items;
+      this.total = this.cartService.getCartTotal().toFixed(2);
     });
     this.total = this.cartService.getCartTotal().toFixed(2);
   }
 
-  onFormatPrice(price: number): string {
-    return price.toFixed(2);
+  onFormatPrice(price: any): string {
+    return Number(price).toFixed(2);
   }
 
   removeFromCart(id: string) {
     this.cartService.removeItem(id);
+    this.cartService.cartEmitter.subscribe((items) => {
+      this.cartItems = items;
+      this.total = this.cartService.getCartTotal().toFixed(2);
+    });
   }
 
   handleRedirectToCheckoutPage() {

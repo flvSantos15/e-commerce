@@ -76,7 +76,6 @@ export class CartService {
         } else {
           this.cartItems.push({ ...productData, quantity, userId });
         }
-
         localStorage.setItem('cart', JSON.stringify(this.cartItems));
         this.cartEmitter.emit(this.cartItems);
       },

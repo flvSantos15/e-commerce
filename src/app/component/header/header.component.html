@@ -3,7 +3,7 @@
     <a routerLink="/">I.commerce</a>
   </h1>
 
-  <div *ngIf="menuType !== 'seller'" class="nav-search">
+  <div *ngIf="showSearch" class="nav-search">
     <input
       type="text"
       placeholder="Search Products"
