@@ -27,6 +27,7 @@ export class HeaderComponent {
     '/add-product',
     '/cart',
     '/login',
+    '/checkout',
   ];
   public showSearch: boolean = false;
 
@@ -64,25 +65,29 @@ export class HeaderComponent {
         const userStorage = localStorage.getItem('user');
 
         if (sellerStorage && this.privateRoutes.includes(event.url)) {
+          if (!this.privateRoutes.includes(event.url)) {
+            this.showSearch = true;
+          }
           const sellerData = JSON.parse(sellerStorage);
           this.sellerName = sellerData.name;
 
-          this.showSearch = false;
           this.menuType = 'seller';
           return;
         }
 
-        if (userStorage && this.privateRoutes.includes(event.url)) {
-          this.showSearch = false;
+        if (userStorage) {
+          if (!this.privateRoutes.includes(event.url)) {
+            this.showSearch = true;
+          }
           this.menuType = 'user';
           return;
         }
 
         if (!userStorage && !sellerStorage) {
           this.cartItemCount = 0;
+          this.menuType = 'default';
         }
         this.showSearch = true;
-        this.menuType = 'default';
       }
     });
   }
