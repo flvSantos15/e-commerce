@@ -1,6 +1,5 @@
-- Create an API for users (buyers)
-- Create a notification system for users (buyers)
-- Create a notification system for sellers
-- Create payment system
-- Create order system
-- Create a rating system
+[] - Finalizar o fluxo de checkout
+[] - Finalizar o fluxo de ordem
+[] - Adicionar um API de pagamento
+[] - Melhorar o desing
+[] - Substituir os alertas por modais

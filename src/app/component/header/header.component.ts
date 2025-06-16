@@ -20,8 +20,15 @@ export class HeaderComponent {
   public cartItemCount: number = 0;
   public sellerName: string = '';
   public userName: string = '';
-  searchResult: IProduct[] = [];
-  privateRoutes: string[] = ['/seller', '/seller-home', '/add-product'];
+  public searchResult: IProduct[] = [];
+  public privateRoutes: string[] = [
+    '/seller',
+    '/seller-home',
+    '/add-product',
+    '/cart',
+    '/login',
+  ];
+  public showSearch: boolean = false;
 
   constructor(
     private router: Router,
@@ -60,13 +67,22 @@ export class HeaderComponent {
           const sellerData = JSON.parse(sellerStorage);
           this.sellerName = sellerData.name;
 
+          this.showSearch = false;
           this.menuType = 'seller';
-        } else if (userStorage) {
+          return;
+        }
+
+        if (userStorage && this.privateRoutes.includes(event.url)) {
+          this.showSearch = false;
           this.menuType = 'user';
-        } else {
-          this.menuType = 'default';
+          return;
+        }
+
+        if (!userStorage && !sellerStorage) {
           this.cartItemCount = 0;
         }
+        this.showSearch = true;
+        this.menuType = 'default';
       }
     });
   }
