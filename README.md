@@ -23,7 +23,6 @@ A feature-rich e-commerce platform designed to provide a seamless shopping exper
 - 💳 **Secure Checkout** - Safe and secure payment processing
 - 📱 **Responsive Design** - Works on desktop, tablet, and mobile
 - 🔄 **Real-time Updates** - Cart and inventory updates in real-time
-- ⭐ **Product Reviews** - Read and write product reviews
 
 ## 🛠️ Technologies Used
 
